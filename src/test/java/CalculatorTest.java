@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +18,8 @@ public class CalculatorTest {
     private calculator ct;
 
 
+
+    
 
     
     @BeforeEach
@@ -50,4 +55,32 @@ public class CalculatorTest {
         assertEquals(Float.NaN, result, "2 / 0 doit être égal à NaN");
 
     }
+
+
+    @Test
+    void testEnsembleChiffres() {
+        Set<Integer> expected = new HashSet<>();
+        
+        expected.add(6);
+        expected.add(7);
+        expected.add(9);
+        assertEquals(expected, calculator.ensembleChiffres(7679), "Chiffres incorrects pour 7679");
+
+        expected.clear();
+        expected.add(1);
+        assertEquals(expected, calculator.ensembleChiffres(-11), "Chiffres incorrects pour -11");
+
+        expected.clear();
+        expected.add(0);
+        assertEquals(expected, calculator.ensembleChiffres(0), "Chiffres incorrects pour 0");
+
+        expected.clear();
+        expected.add(1);
+        expected.add(2);
+        expected.add(3);
+        expected.add(4);
+        expected.add(5);
+        assertEquals(expected, calculator.ensembleChiffres(12345), "Chiffres incorrects pour 12345");
+      }
 }
+
