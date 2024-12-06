@@ -16,9 +16,19 @@ jacocoTestReport {
 		// dossier et fichier de rangement par défaut, mais modifiable, comme par exemple :
 		// html.outputLocation=layout.projectDirectory.dir('reports/jacoco/test')
 	}
-	
+
+}
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.50 
+            }
+        }
+    }
 }
 
+check.dependsOn jacocoTestCoverageVerification
 
 repositories {
 	mavenCentral()
