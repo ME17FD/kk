@@ -12,15 +12,7 @@ import com.kkk.calculator.calculator;
 
 public class CalculatorTest {
 
-    
-
-
     private calculator ct;
-
-
-
-    
-
     
     @BeforeEach
     void setUp() {

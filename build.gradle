@@ -1,7 +1,24 @@
 plugins {
 	id 'java'
 	id 'idea' // optional (to generate IntelliJ IDEA project files)
+	id 'jacoco'
 }
+
+jacoco {
+    toolVersion = "0.8.10" // Remplacez par la dernière version
+}
+
+jacocoTestReport {
+	dependsOn test
+	reports {
+		xml.required = true
+		html.outputLocation=layout.buildDirectory.dir('reports/jacoco/test')
+		// dossier et fichier de rangement par défaut, mais modifiable, comme par exemple :
+		// html.outputLocation=layout.projectDirectory.dir('reports/jacoco/test')
+	}
+	
+}
+
 
 repositories {
 	mavenCentral()
